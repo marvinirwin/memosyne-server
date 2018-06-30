@@ -10,11 +10,11 @@
   "properties": {
     "id": {
       "type": "Number",
-      "id": 1,
       "required": false,
       "length": null,
       "precision": null,
       "scale": 0,
+      "id": 1,
       "postgresql": {
         "columnName": "id",
         "dataType": "bigint",
@@ -69,19 +69,18 @@
         "nullable": "YES"
       }
     },
-    "assignedTo": {
+    "nodeId": {
       "type": "Number",
-      "required": false,
       "length": null,
       "precision": null,
       "scale": 0,
       "postgresql": {
-        "columnName": "assigned_to",
+        "columnName": "node_id",
         "dataType": "bigint",
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": 0,
-        "nullable": "YES"
+        "nullable": "NO"
       }
     },
     "visible": {
@@ -100,8 +99,6 @@
       }
     }
   },
-  "validations": [],
-  "relations": {},
   "acls": [
     {
       "accessType": "*",
@@ -112,7 +109,7 @@
     {
       "accessType": "READ",
       "principalType": "ROLE",
-      "principalId": "$everyone",
+      "principalId": "$owner",
       "permission": "ALLOW",
       "property": "find"
     },
@@ -123,5 +120,15 @@
       "property": "create"
     }
   ],
+  "validations": [],
+  "relations": {
+    "node": {
+      "type": "belongsTo",
+      "model": "Node",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
   "methods": {}
 }

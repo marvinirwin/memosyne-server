@@ -10,11 +10,11 @@
   "properties": {
     "id": {
       "type": "Number",
-      "id": 1,
       "required": false,
       "length": null,
       "precision": null,
       "scale": 0,
+      "id": 1,
       "postgresql": {
         "columnName": "id",
         "dataType": "bigint",
@@ -39,38 +39,18 @@
         "nullable": "YES"
       }
     },
-    "user": {
+    "userId": {
       "type": "Number",
-      "required": false,
       "length": null,
       "precision": null,
       "scale": 0,
       "postgresql": {
-        "columnName": "user",
+        "columnName": "user_id",
         "dataType": "bigint",
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": 0,
-        "nullable": "YES"
-      }
-    }
-  },
-  "validations": [],
-  "relations": {
-    "user": {
-      "type": "belongsTo",
-      "model": "user",
-      "foreignKey": "user",
-      "options": {
-        "nestRemoting": true
-      }
-    },
-    "nodeRevisions": {
-      "type": "hasMany",
-      "model": "NodeRevision",
-      "foreignKey": "assignedTo",
-      "options": {
-        "nestRemoting": true
+        "nullable": "NO"
       }
     }
   },
@@ -84,7 +64,7 @@
     {
       "accessType": "READ",
       "principalType": "ROLE",
-      "principalId": "$everyone",
+      "principalId": "$owner",
       "permission": "ALLOW",
       "property": "find"
     },
@@ -95,5 +75,22 @@
       "property": "create"
     }
   ],
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "nodeRevisions": {
+      "type": "hasMany",
+      "model": "NodeRevision",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
   "methods": {}
 }

@@ -37,6 +37,9 @@ function sanitizeModel(model) {
       v.id = 1;
       v.required = false;
     }
+    if (v.required) {
+      delete v.required;
+    }
   }
 }
 

@@ -10,7 +10,6 @@
   "properties": {
     "id": {
       "type": "Number",
-      "id": 1,
       "required": false,
       "length": null,
       "precision": null,
@@ -22,7 +21,8 @@
         "dataPrecision": null,
         "dataScale": 0,
         "nullable": "YES"
-      }
+      },
+      "id": 1
     },
     "createdTimestamp": {
       "type": "Date",
@@ -130,22 +130,23 @@
       }
     }
   },
-  "validations": [],
-  "relations": {},
   "acls": [
     {
       "accessType": "*",
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "DENY"
-    },
-    {
-      "accessType": "READ",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "ALLOW",
-      "property": "find"
     }
   ],
+  "validations": [],
+  "relations": {
+    "edge": {
+      "type": "belongsTo",
+      "model": "Edge",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
   "methods": {}
 }

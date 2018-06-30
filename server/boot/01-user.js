@@ -31,4 +31,19 @@ module.exports = (server) => {
       });
     });
   });
+
+  const node = server.models.Node;
+  const nodeRevision = server.models.NodeRevision;
+  const edge = server.models.Edge;
+  const edgeRevision = server.models.EdgeRevision;
+  const addUser = async (ctx) => {
+    ctx.req.body.userId = ctx.req.accessToken.userId;
+  };
+  node.beforeRemote('create', addUser);
+  nodeRevision.beforeRemote('create', addUser);
+  edge.beforeRemote('create', addUser);
+  edgeRevision.beforeRemote('create', addUser);
+
+  user.hasMany(node, {});
+  user.hasMany(edge, {});
 };
