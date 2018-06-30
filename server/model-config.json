@@ -1,0 +1,54 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "aws"
+  },
+  "AccessToken": {
+    "dataSource": "aws",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "aws",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "aws",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "aws",
+    "public": false
+  },
+  "Node": {
+    "dataSource": "aws"
+  },
+  "NodeRevision": {
+    "dataSource": "aws"
+  },
+  "Edge": {
+    "dataSource": "aws"
+  },
+  "EdgeRevision": {
+    "dataSource": "aws"
+  },
+  "Email": {
+    "dataSource": "Mail",
+    "public": false
+  }
+}
