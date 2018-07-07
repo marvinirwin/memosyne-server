@@ -84,6 +84,15 @@
         "nestRemoting": true
       }
     },
+
+    "defaultUser": {
+      "type": "belongsTo",
+      "model": "defaultUser",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+
     "nodeRevisions": {
       "type": "hasMany",
       "model": "NodeRevision",

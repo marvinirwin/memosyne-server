@@ -90,6 +90,13 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "defaultUser": {
+      "type": "belongsTo",
+      "model": "defaultUser",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "methods": {}

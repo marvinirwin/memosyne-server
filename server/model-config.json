@@ -50,5 +50,8 @@
   "Email": {
     "dataSource": "Mail",
     "public": false
+  },
+  "DefaultUser": {
+    "dataSource": "aws"
   }
 }

@@ -1,6 +1,6 @@
 {
   "aws": {
-    "host": "something.us-east-2.rds.amazonaws.com",
+    "host": "localhost",
     "database": "postgres",
     "password": "mysecretpassword",
     "name": "aws",

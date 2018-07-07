@@ -4,6 +4,7 @@ var path = require('path');
 module.exports = (server) => {
   console.log('setting after remote for user');
   const user = server.models.User;
+  const defaultUser = server.models.DefaultUser;
   user.afterRemote('create', function (context, userInstance, next) {
     console.log('> user.afterRemote triggered');
 
@@ -46,4 +47,11 @@ module.exports = (server) => {
 
   user.hasMany(node, {});
   user.hasMany(edge, {});
+  defaultUser.hasMany(node, {
+    foreignKey: "userId"
+  });
+  defaultUser.hasMany(edge, {
+    foreignKey: "userId"
+  });
+  user.emit('remoteMethodAdded');
 };
