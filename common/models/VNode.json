@@ -24,29 +24,29 @@
       },
       "id": 1
     },
-    "revisions": {
-      "type": "String",
+    "createdTimestamp": {
+      "type": "Date",
       "required": false,
       "length": null,
       "precision": null,
       "scale": null,
       "postgresql": {
-        "columnName": "revisions",
-        "dataType": "jsonb",
+        "columnName": "created_timestamp",
+        "dataType": "timestamp without time zone",
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
         "nullable": "YES"
       }
     },
-    "revisionCount": {
+    "userId": {
       "type": "Number",
       "required": false,
       "length": null,
       "precision": null,
       "scale": 0,
       "postgresql": {
-        "columnName": "revision_count",
+        "columnName": "user_id",
         "dataType": "bigint",
         "dataLength": null,
         "dataPrecision": null,
@@ -54,15 +54,30 @@
         "nullable": "YES"
       }
     },
-    "latestRevisionText": {
-      "type": "String",
+    "lastModified": {
+      "type": "Date",
       "required": false,
       "length": null,
       "precision": null,
       "scale": null,
       "postgresql": {
-        "columnName": "latest_revision_text",
-        "dataType": "text",
+        "columnName": "last_modified",
+        "dataType": "timestamp without time zone",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "YES"
+      }
+    },
+    "visible": {
+      "type": "Boolean",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "visible",
+        "dataType": "boolean",
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
@@ -76,9 +91,42 @@
       "principalType": "ROLE",
       "principalId": "$everyone",
       "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": [
+        "find",
+        "findById"
+      ]
     }
   ],
   "validations": [],
-  "relations": {},
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "defaultUser": {
+      "type": "belongsTo",
+      "model": "defaultUser",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "nodeRevisions": {
+      "type": "hasMany",
+      "model": "NodeRevision",
+      "foreignKey": "nodeId",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
   "methods": {}
 }

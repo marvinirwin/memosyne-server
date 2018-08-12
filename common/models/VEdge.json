@@ -24,36 +24,6 @@
       },
       "id": 1
     },
-    "revisions": {
-      "type": "String",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "postgresql": {
-        "columnName": "revisions",
-        "dataType": "jsonb",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "YES"
-      }
-    },
-    "revisionCount": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": 0,
-      "postgresql": {
-        "columnName": "revision_count",
-        "dataType": "bigint",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": 0,
-        "nullable": "YES"
-      }
-    },
     "latestRevisionText": {
       "type": "String",
       "required": false,

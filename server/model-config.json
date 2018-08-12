@@ -38,6 +38,9 @@
   "Node": {
     "dataSource": "aws"
   },
+  "VNode": {
+    "dataSource": "aws"
+  },
   "NodeRevision": {
     "dataSource": "aws"
   },

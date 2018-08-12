@@ -1,11 +1,26 @@
 {
   "name": "DefaultUser",
-  "base": "User",
   "options": {
-    "idInjection": false,
     "postgresql": {
       "schema": "public",
       "table": "v_default_user"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "Number",
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "id": 1,
+      "postgresql": {
+        "columnName": "id",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "NO"
+      }
     }
   },
   "acls": [
