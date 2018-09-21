@@ -1,117 +1,98 @@
 {
-  "name": "VEdge",
+  "name": "NestedSetsGraph",
   "options": {
     "idInjection": false,
     "postgresql": {
       "schema": "public",
-      "table": "v_edge"
+      "table": "nested_sets_graph"
     }
   },
   "properties": {
+    "sourceId": {
+      "type": "Number",
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "source_id",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "NO"
+      }
+    },
+    "nodeId": {
+      "type": "Number",
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "node_id",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "NO"
+      }
+    },
+    "lft": {
+      "type": "Number",
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "lft",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "NO"
+      }
+    },
+    "rgt": {
+      "type": "Number",
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "rgt",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "NO"
+      }
+    },
+    "lastModified": {
+      "type": "String",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "last_modified",
+        "dataType": "timestamp with time zone",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "YES"
+      }
+    },
     "id": {
       "type": "Number",
       "required": false,
       "length": null,
       "precision": null,
       "scale": 0,
+      "id": 1,
       "postgresql": {
         "columnName": "id",
         "dataType": "bigint",
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": 0,
-        "nullable": "YES"
-      },
-      "id": 1
-    },
-    "visible": {
-      "type": "Boolean",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "postgresql": {
-        "columnName": "visible",
-        "dataType": "boolean",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "YES"
-      }
-    },
-    "classification": {
-      "type": "String",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "postgresql": {
-        "columnName": "classification",
-        "dataType": "text",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "YES"
-      }
-    },
-    "createdTimestamp": {
-      "type": "Date",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "postgresql": {
-        "columnName": "created_timestamp",
-        "dataType": "timestamp without time zone",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "YES"
-      }
-    },
-    "n1": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": 0,
-      "postgresql": {
-        "columnName": "n1",
-        "dataType": "bigint",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": 0,
-        "nullable": "YES"
-      }
-    },
-    "n2": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": 0,
-      "postgresql": {
-        "columnName": "n2",
-        "dataType": "bigint",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": 0,
-        "nullable": "YES"
-      }
-    },
-    "text": {
-      "type": "String",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "postgresql": {
-        "columnName": "text",
-        "dataType": "text",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "YES"
+        "nullable": "NO"
       }
     }
   },
@@ -125,12 +106,9 @@
     {
       "accessType": "READ",
       "principalType": "ROLE",
-      "principalId": "$owner",
+      "principalId": "$everyone",
       "permission": "ALLOW",
       "property": "find"
     }
-  ],
-  "validations": [],
-  "relations": {},
-  "methods": {}
+  ]
 }

@@ -79,5 +79,15 @@ function discoverTable(tableName) {
   dataSource.discoverSchema(tableName, {schema: 'public'}, schemaCB);
 }
 
-const tables = ["node","edge","node_revision","edge_revision","v_node","v_edge", "v_node_revision", "v_edge_revision"];
+const tables = [
+  "node",
+  "edge",
+  "node_revision",
+  "edge_revision",
+  "v_node",
+  "v_edge",
+  "v_node_revision",
+  "v_edge_revision",
+  'nested_sets_graph',
+  'v_nested_sets_graph'];
 tables.map(discoverTable);

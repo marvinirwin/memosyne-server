@@ -2,7 +2,7 @@ module.exports = {
   "aws": {
     "host": "memosyne.cepasb0h4kbd.us-east-2.rds.amazonaws.com",
     "database": "postgres",
-    "password": "icecream_is_very_cold",
+    "password": "dogs_are_very_fuzzy",
     "name": "aws",
     "user": "memosyne",
     "connector": "postgresql",

@@ -38,18 +38,21 @@ module.exports = (server) => {
   const nodeRevision = server.models.NodeRevision;
   const edge = server.models.Edge;
   const edgeRevision = server.models.EdgeRevision;
-  const createNodeRevision = async ({result}) => {
-    // Will I get the entire object back, or do I have to re-query it?
-    const revisionResult = await server.models.NodeRevision.create({nodeId: result.id});
-    const revision = await server.models.NodeRevision.findById(revisionResult.id);
+  const nestedSetsGraph = server.models.NestedSetsGraph;
+  const vNestedSetsGraph = server.models.VNestedSetsGraph;
 
-    result.nodeRevisions = [revision];
+  const createNodeRevision = async (ctx) => {
+    // Will I get the entire object back, or do I have to re-query it?
+    const revisionResult = await server.models.NodeRevision.create({nodeId: ctx.result.id});
+    const revision = await server.models.NodeRevision.findById(revisionResult.id);
+    // TODO The request that this replies to does not receive nodeRevisions, why not?
+    ctx.result.nodeRevisions = [revision];
   };
   const addUser = async (ctx) => {
     ctx.req.body.userId = ctx.req.accessToken.userId;
   };
-  node.beforeRemote('create', addUser);
   node.afterRemote('create', createNodeRevision);
+  node.beforeRemote('create', addUser);
   nodeRevision.beforeRemote('create', addUser);
   edge.beforeRemote('create', addUser);
   edgeRevision.beforeRemote('create', addUser);
@@ -63,6 +66,10 @@ module.exports = (server) => {
   defaultUser.hasMany(edge, {
     foreignKey: 'userId',
   });
+  defaultUser.hasMany(vNestedSetsGraph, {
+    foreignKey: 'userId',
+  });
+  user.hasMany(vNestedSetsGraph, {});
   user.hasMany(node, {});
   user.hasMany(vNode, {});
   user.hasMany(edge, {});
@@ -85,10 +92,14 @@ module.exports = (server) => {
   );
   user.emit('remoteMethodAdded');
 
+  // I don't remember when I made this,
+  // but I would think that I have to add nestRemoting to defaultUser, but I guess not?
   user.nestRemoting('nodes');
   user.nestRemoting('vNodes');
   user.nestRemoting('edges');
+  user.nestRemoting('vNestedSetsGraph');
   node.nestRemoting('nodeRevisions');
   vNode.nestRemoting('nodeRevisions');
   edge.nestRemoting('edgeRevisions');
+  vNestedSetsGraph.nestRemoting('vNodes');
 };

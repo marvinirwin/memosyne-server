@@ -1,13 +1,73 @@
 {
-  "name": "VNode",
+  "name": "VNestedSetsGraph",
   "options": {
     "idInjection": false,
     "postgresql": {
       "schema": "public",
-      "table": "v_node"
+      "table": "v_nested_sets_graph"
     }
   },
   "properties": {
+    "sourceId": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "source_id",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      }
+    },
+    "nodeId": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "node_id",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      }
+    },
+    "lft": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "lft",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      }
+    },
+    "rgt": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "rgt",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      }
+    },
     "id": {
       "type": "Number",
       "required": false,
@@ -24,36 +84,6 @@
       },
       "id": 1
     },
-    "createdTimestamp": {
-      "type": "Date",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "postgresql": {
-        "columnName": "created_timestamp",
-        "dataType": "timestamp without time zone",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "YES"
-      }
-    },
-    "userId": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": 0,
-      "postgresql": {
-        "columnName": "user_id",
-        "dataType": "bigint",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": 0,
-        "nullable": "YES"
-      }
-    },
     "lastModified": {
       "type": "String",
       "required": false,
@@ -63,21 +93,6 @@
       "postgresql": {
         "columnName": "last_modified",
         "dataType": "timestamp with time zone",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "YES"
-      }
-    },
-    "visible": {
-      "type": "Boolean",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "postgresql": {
-        "columnName": "visible",
-        "dataType": "boolean",
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
@@ -98,6 +113,21 @@
         "dataScale": null,
         "nullable": "YES"
       }
+    },
+    "userId": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "user_id",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      }
     }
   },
   "acls": [
@@ -110,38 +140,9 @@
     {
       "accessType": "READ",
       "principalType": "ROLE",
-      "principalId": "$owner",
+      "principalId": "$everyone",
       "permission": "ALLOW",
-      "property": [
-        "find",
-        "findById"
-      ]
+      "property": "find"
     }
-  ],
-  "validations": [],
-  "relations": {
-    "user": {
-      "type": "belongsTo",
-      "model": "user",
-      "options": {
-        "nestRemoting": true
-      }
-    },
-    "defaultUser": {
-      "type": "belongsTo",
-      "model": "defaultUser",
-      "options": {
-        "nestRemoting": true
-      }
-    },
-    "nodeRevisions": {
-      "type": "hasMany",
-      "model": "NodeRevision",
-      "foreignKey": "nodeId",
-      "options": {
-        "nestRemoting": true
-      }
-    }
-  },
-  "methods": {}
+  ]
 }
