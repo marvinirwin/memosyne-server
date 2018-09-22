@@ -56,5 +56,9 @@
   },
   "DefaultUser": {
     "dataSource": "aws"
+  },
+  "VNestedSetsGraph": {
+    "dataSource": "aws",
+    "public": true
   }
 }

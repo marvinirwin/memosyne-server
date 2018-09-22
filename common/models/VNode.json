@@ -123,6 +123,7 @@
     "user": {
       "type": "belongsTo",
       "model": "user",
+      "foreignKey": "userId",
       "options": {
         "nestRemoting": true
       }
@@ -130,6 +131,7 @@
     "defaultUser": {
       "type": "belongsTo",
       "model": "defaultUser",
+      "foreignKey": "userId",
       "options": {
         "nestRemoting": true
       }
@@ -137,6 +139,14 @@
     "nodeRevisions": {
       "type": "hasMany",
       "model": "NodeRevision",
+      "foreignKey": "nodeId",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "vNestedSetsGraph": {
+      "type": "hasOne",
+      "model": "VNestedSetsGraph",
       "foreignKey": "nodeId",
       "options": {
         "nestRemoting": true

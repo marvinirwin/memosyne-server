@@ -94,12 +94,15 @@ module.exports = (server) => {
 
   // I don't remember when I made this,
   // but I would think that I have to add nestRemoting to defaultUser, but I guess not?
+
+
+  // !!!! Be careful when you do this, plurals matter in relations
   user.nestRemoting('nodes');
   user.nestRemoting('vNodes');
   user.nestRemoting('edges');
-  user.nestRemoting('vNestedSetsGraph');
+  user.nestRemoting('vNestedSetsGraphs');
   node.nestRemoting('nodeRevisions');
   vNode.nestRemoting('nodeRevisions');
   edge.nestRemoting('edgeRevisions');
-  vNestedSetsGraph.nestRemoting('vNodes');
+  vNestedSetsGraph.nestRemoting('vNode');
 };

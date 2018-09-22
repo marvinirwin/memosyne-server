@@ -144,5 +144,38 @@
       "permission": "ALLOW",
       "property": "find"
     }
-  ]
+  ],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "defaultUser": {
+      "type": "belongsTo",
+      "model": "DefaultUser",
+      "foreignKey": "userId",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "node": {
+      "type": "hasOne",
+      "model": "Node",
+      "foreignKey": "id",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "vNode": {
+      "type": "hasOne",
+      "model": "VNode",
+      "foreignKey": "id",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  }
 }

@@ -82,14 +82,15 @@
   "relations": {
     "user": {
       "type": "belongsTo",
-      "model": "user",
+      "model": "User",
       "options": {
         "nestRemoting": true
       }
     },
     "defaultUser": {
       "type": "belongsTo",
-      "model": "defaultUser",
+      "model": "DefaultUser",
+      "foreignKey": "userId",
       "options": {
         "nestRemoting": true
       }
