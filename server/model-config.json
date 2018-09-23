@@ -47,6 +47,9 @@
   "Edge": {
     "dataSource": "aws"
   },
+  "VEdge": {
+    "dataSource": "aws"
+  },
   "EdgeRevision": {
     "dataSource": "aws"
   },
