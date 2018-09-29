@@ -89,5 +89,8 @@ const tables = [
   "v_node_revision",
   "v_edge_revision",
   'nested_sets_graph',
-  'v_nested_sets_graph'];
+  'v_nested_sets_graph',
+];
 tables.map(discoverTable);
+
+

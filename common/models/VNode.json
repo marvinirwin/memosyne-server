@@ -150,12 +150,12 @@
       "foreignKey": "nodeId",
       "options": {
         "nestRemoting": true
-      },
-      "outgoingEdges": {
-        "type": "hasMany",
-        "model": "VEdge",
-        "foreignKey": "id"
       }
+    },
+    "outgoingVEdges": {
+      "type": "hasMany",
+      "model": "VEdge",
+      "foreignKey": "n1"
     }
   },
   "methods": {}

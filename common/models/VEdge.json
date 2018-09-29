@@ -132,10 +132,11 @@
   ],
   "validations": [],
   "relations": {
-    "outgoingEdges": {
+    "outgoingVEdges": {
       "type": "hasMany",
       "model": "VNode",
-      "foreignKey": "id"
+      "foreignKey": "id",
+      "primaryKey": "n1"
     }
   },
   "methods": {}
