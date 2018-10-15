@@ -17,14 +17,13 @@ const defaultACLs = [
           principalType: 'ROLE',
           principalId: '$everyone',
           permission: 'ALLOW',
-          property: 'find',
       },
 ];
 
 function sanitizeModel(model) {
   for (let prop in model.properties) {
     let v = model.properties[prop];
-    if (v.postgresql.dataType === 'timestamp without time zone') {
+    if (v.postgresql.dataType === 'timestamp with time zone') {
       v.type = 'Date';
     }
     if (v.postgresql.dataType === 'float') {
@@ -91,6 +90,7 @@ const tables = [
   'nested_sets_graph',
   'v_nested_sets_graph',
 ];
+
 tables.map(discoverTable);
 
 

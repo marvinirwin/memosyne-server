@@ -51,7 +51,7 @@ function getClassText(model) {
         tsType = "float";
         propertyType = "number";
         break;
-      case "timestamp without time zone":
+      case "timestamp with time zone":
       case "date":
         tsType = "Date";
         propertyType = "Date";

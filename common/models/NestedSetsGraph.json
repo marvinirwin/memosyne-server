@@ -65,7 +65,7 @@
       }
     },
     "lastModified": {
-      "type": "String",
+      "type": "Date",
       "required": false,
       "length": null,
       "precision": null,

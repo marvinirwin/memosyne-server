@@ -2,9 +2,9 @@
   "aws": {
     "host": "localhost",
     "database": "postgres",
+    "user": "postgres",
     "password": "mysecretpassword",
     "name": "aws",
-    "user": "postgres",
     "connector": "postgresql"
   },
   "Mail": {

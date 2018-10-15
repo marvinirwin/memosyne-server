@@ -32,7 +32,7 @@
       "scale": null,
       "postgresql": {
         "columnName": "created_timestamp",
-        "dataType": "timestamp without time zone",
+        "dataType": "timestamp with time zone",
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
@@ -55,7 +55,7 @@
       }
     },
     "lastModified": {
-      "type": "String",
+      "type": "Date",
       "required": false,
       "length": null,
       "precision": null,

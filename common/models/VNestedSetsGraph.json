@@ -85,7 +85,7 @@
       "id": 1
     },
     "lastModified": {
-      "type": "String",
+      "type": "Date",
       "required": false,
       "length": null,
       "precision": null,
@@ -126,6 +126,21 @@
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": 0,
+        "nullable": "YES"
+      }
+    },
+    "visible": {
+      "type": "Boolean",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "visible",
+        "dataType": "boolean",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
         "nullable": "YES"
       }
     }
@@ -173,6 +188,7 @@
       "type": "hasOne",
       "model": "VNode",
       "foreignKey": "id",
+      "primaryKey": "nodeId",
       "options": {
         "nestRemoting": true
       }
