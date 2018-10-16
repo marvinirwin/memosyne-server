@@ -192,6 +192,15 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "vNestedSetsGraphMates": {
+      "type": "hasMany",
+      "model": "VNestedSetsGraph",
+      "foreignKey": "sourceId",
+      "primaryKey": "sourceId",
+      "options": {
+        "nestRemoting": true
+      }
     }
   }
 }

@@ -137,6 +137,14 @@
       "model": "VNode",
       "foreignKey": "id",
       "primaryKey": "n1"
+    },
+    "edgeRevisions": {
+      "type": "hasMany",
+      "model": "EdgeRevision",
+      "foreignKey": "edgeId",
+      "options": {
+        "nestRemoting": true
+      }
     }
   },
   "methods": {}
