@@ -152,6 +152,11 @@
         "nestRemoting": true
       }
     },
+    "incomingVEdges": {
+      "type": "hasMany",
+      "model": "VEdge",
+      "foreignKey": "n2"
+    },
     "outgoingVEdges": {
       "type": "hasMany",
       "model": "VEdge",

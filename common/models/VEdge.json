@@ -138,6 +138,12 @@
       "foreignKey": "id",
       "primaryKey": "n1"
     },
+    "incomingVEdges": {
+      "type": "hasMany",
+      "model": "VNode",
+      "foreignKey": "id",
+      "primaryKey": "n2"
+    },
     "edgeRevisions": {
       "type": "hasMany",
       "model": "EdgeRevision",
