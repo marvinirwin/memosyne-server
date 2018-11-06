@@ -105,4 +105,6 @@ module.exports = (server) => {
   vNode.nestRemoting('nodeRevisions');
   edge.nestRemoting('edgeRevisions');
   vNestedSetsGraph.nestRemoting('vNode');
+
+  // FOR STACKOVERFLOW
 };

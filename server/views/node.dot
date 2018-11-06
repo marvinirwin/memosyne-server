@@ -1,0 +1,23 @@
+<div id="container">
+    <div id="root-list">
+    </div>
+    <div id="parent-container">
+      <div id="parent-text">
+        {{=it.parent.text}}
+      </div>
+      <div id="short-children"><!-- TODO iteration here -->
+        <div>
+          <div class="child-text"></div>
+          <div class="child-links"></div>
+        </div>
+      </div>
+    </div>
+    <div id="long-children"><!-- TODO iteration here -->
+        <div>
+          <div class="child-text"></div>
+          <div class="child-links"></div>
+        </div>
+    </div>
+</div>
+
+<div>Hi !</div>
