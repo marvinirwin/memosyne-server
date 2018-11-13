@@ -135,7 +135,6 @@ module.exports = (server) => {
         }
     };
 
-
     server.get('/static/:nodeId', async function (req, res) {
         const nodeId = req.params.nodeId;
         const response = await vGraphModel.static(nodeId);
