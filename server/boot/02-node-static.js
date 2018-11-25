@@ -1,5 +1,6 @@
 const path = require('path');
 const dot = require("dot");
+const fs = require('fs');
 
 const _ = require('lodash');
 const showdown = require('showdown');
@@ -33,17 +34,21 @@ WHERE g.user_id = $1 AND g.lft = 1 AND g.visible = TRUE AND n.text IS NOT NULL;
 `;
 
 const originalDots = dot.process({path: path.resolve(__dirname, '../views')});
+const originalJavascript = fs.readFileSync(path.resolve(__dirname, '../../client/web.js'));
+
 const production = !!process.env.PRODUCTION;
 
 function getDotNodeTemplate() {}
 
 if (production) {
     getDotNodeTemplate = function (o) {
+        Object.assign(o, {javascript: originalJavascript});
         return originalDots.node(o);
     }
 } else {
     getDotNodeTemplate = function (o) {
         const dots = dot.process({path: path.resolve(__dirname, '../views')});
+         Object.assign(o, {javascript: originalJavascript});
         return dots.node(o);
     }
 }
@@ -140,4 +145,13 @@ module.exports = (server) => {
         const response = await vGraphModel.static(nodeId);
         res.send(response);
     });
+
+    const f = async function (req, res) {
+        const nodes = await vNodeModel.find({limit: 1, order: ['createdTimestamp DESC']});
+        const response = await vGraphModel.static(nodes[0].id);
+        res.send(response);
+    };
+
+    server.get('/static', f);
+    server.get('/static/', f);
 };

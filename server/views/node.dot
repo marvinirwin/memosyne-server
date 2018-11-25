@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+
   <style id="solarized-dark">@import url(http://fonts.googleapis.com/css?family=Inconsolata);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
@@ -2232,11 +2233,6 @@ html {
   th {
   	padding: 5px 10px;
   }
-
-
-  </style>
-
-  <style>
   </style>
 
   <meta charset="UTF-8">
@@ -2245,13 +2241,18 @@ html {
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Node</title>
 </head>
-<body >
+<body>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">    </div>
 <header>
     <a href="{{=it.homeLink}}">NoteGraph</a>
     <a href="{{=it.staticLink}}">NoteGraph Static</a>
     <a href="/auth/google">Sign in with google</a>
-
-
     {{ for(var index in it.parentNodes) { }}
         <a href="{{=it.parentNodes[index].url}}">{{=it.parentNodes[index].summary}}</a>
     {{ } }}
@@ -2262,6 +2263,14 @@ html {
 </header>
 <div class="container-fluid">
     <div class="row">
+        <div class="col 4" id="loading-container">
+
+        </div>
+        <div class="col 4" id="authentication-container">
+
+        </div>
+    </div>
+    <div class="row">
         <nav class="col-2">
             <ul style="margin: 0; margin-block-start: 0; margin-block-end: 0; margin-inline-start: 0; margin-inline-end: 0; padding-inline-start: 0;">
                 {{ for(var index in it.userRootNodes) { }}
@@ -2271,12 +2280,26 @@ html {
                 {{ } }}
             </ul>
         </nav>
-        <article class="col-10">
-            <section> {{=it.node.markdown}} </section>
+        <article class="col-10 node-container">
+
+            <div class="node-markdown" style="tab-index: 99;">
+             {{=it.node.markdown}}
+             </div>
+
+             <textarea style="display: none; tab-index: 99;" class="node-text">
+             {{=it.node.text}}
+             </textarea>
+
             {{ for(var index in it.childNodes) { }}
-            <section>
-              <a href="{{=it.childNodes[index].url}}">link</a>
-              <p class="child-text">{{=it.childNodes[index].markdown}}</p>
+            <section class="node-container">
+                <a href="{{=it.childNodes[index].url}}">link</a>
+                <div class="node-markdown" style="tab-index: 99;">
+                {{=it.childNodes[index].markdown}}
+                </div>
+
+                <textarea style="display: none; tab-index: 99;" class="node-text">
+                {{=it.childNodes[index].text}}
+                </textarea>
             </section>
             {{ } }}
         </article>
@@ -2284,6 +2307,12 @@ html {
 </div>
 <footer>
 </footer>
+
+<script></script>
+
+<script>
+</script>
+
 </body>
 </html>
 
