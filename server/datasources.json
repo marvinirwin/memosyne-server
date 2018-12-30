@@ -5,6 +5,7 @@
     "user": "postgres",
     "password": "mysecretpassword",
     "name": "aws",
+    "maxDepthOfQuery": 32,
     "connector": "postgresql"
   },
   "Mail": {
