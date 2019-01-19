@@ -9,10 +9,10 @@
   "properties": {
     "id": {
       "type": "Number",
+      "id": 1,
       "length": null,
       "precision": null,
       "scale": 0,
-      "id": 1,
       "postgresql": {
         "columnName": "id",
         "dataType": "bigint",
@@ -23,6 +23,8 @@
       }
     }
   },
+  "validations": [],
+  "relations": {},
   "acls": [
     {
       "accessType": "*",
@@ -36,5 +38,7 @@
       "permission": "ALLOW",
       "property": "find"
     }
-  ]
+  ],
+  "methods": {
+  }
 }
