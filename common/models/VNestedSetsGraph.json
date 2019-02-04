@@ -1,1 +1,208 @@
-{"name":"VNestedSetsGraph","options":{"idInjection":false,"postgresql":{"schema":"public","table":"v_nested_sets_graph"}},"properties":{"sourceId":{"type":"Number","required":false,"length":null,"precision":null,"scale":0,"postgresql":{"columnName":"source_id","dataType":"bigint","dataLength":null,"dataPrecision":null,"dataScale":0,"nullable":"YES"}},"nodeId":{"type":"Number","required":false,"length":null,"precision":null,"scale":0,"postgresql":{"columnName":"node_id","dataType":"bigint","dataLength":null,"dataPrecision":null,"dataScale":0,"nullable":"YES"}},"lft":{"type":"Number","required":false,"length":null,"precision":null,"scale":0,"postgresql":{"columnName":"lft","dataType":"bigint","dataLength":null,"dataPrecision":null,"dataScale":0,"nullable":"YES"}},"rgt":{"type":"Number","required":false,"length":null,"precision":null,"scale":0,"postgresql":{"columnName":"rgt","dataType":"bigint","dataLength":null,"dataPrecision":null,"dataScale":0,"nullable":"YES"}},"id":{"type":"Number","id":1,"required":false,"length":null,"precision":null,"scale":0,"postgresql":{"columnName":"id","dataType":"bigint","dataLength":null,"dataPrecision":null,"dataScale":0,"nullable":"YES"}},"lastModified":{"type":"Date","required":false,"length":null,"precision":null,"scale":null,"postgresql":{"columnName":"last_modified","dataType":"timestamp with time zone","dataLength":null,"dataPrecision":null,"dataScale":null,"nullable":"YES"}},"text":{"type":"String","required":false,"length":null,"precision":null,"scale":null,"postgresql":{"columnName":"text","dataType":"text","dataLength":null,"dataPrecision":null,"dataScale":null,"nullable":"YES"}},"userId":{"type":"Number","required":false,"length":null,"precision":null,"scale":0,"postgresql":{"columnName":"user_id","dataType":"bigint","dataLength":null,"dataPrecision":null,"dataScale":0,"nullable":"YES"}},"visible":{"type":"Boolean","required":false,"length":null,"precision":null,"scale":null,"postgresql":{"columnName":"visible","dataType":"boolean","dataLength":null,"dataPrecision":null,"dataScale":null,"nullable":"YES"}}},"validations":[],"relations":{"user":{"type":"belongsTo","model":"user","options":{"nestRemoting":true}},"defaultUser":{"type":"belongsTo","model":"DefaultUser","foreignKey":"userId","options":{"nestRemoting":true}},"node":{"type":"hasOne","model":"Node","foreignKey":"id","options":{"nestRemoting":true}},"vNode":{"type":"hasOne","model":"VNode","foreignKey":"id","primaryKey":"nodeId","options":{"nestRemoting":true}},"vNestedSetsGraphMates":{"type":"hasMany","model":"VNestedSetsGraph","foreignKey":"sourceId","primaryKey":"sourceId","options":{"nestRemoting":true}}},"acls":[{"accessType":"*","principalType":"ROLE","principalId":"$everyone","permission":"DENY"},{"accessType":"READ","principalType":"ROLE","principalId":"$everyone","permission":"ALLOW","property":"find"}],"methods":{}}
+{
+  "name": "VNestedSetsGraph",
+  "options": {
+    "idInjection": false,
+    "postgresql": {
+      "schema": "public",
+      "table": "v_nested_sets_graph"
+    }
+  },
+  "properties": {
+    "sourceId": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "source_id",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      }
+    },
+    "nodeId": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "node_id",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      }
+    },
+    "lft": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "lft",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      }
+    },
+    "rgt": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "rgt",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      }
+    },
+    "id": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "id",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      },
+      "id": 1
+    },
+    "lastModified": {
+      "type": "Date",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "last_modified",
+        "dataType": "timestamp with time zone",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "YES"
+      }
+    },
+    "text": {
+      "type": "String",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "text",
+        "dataType": "text",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "YES"
+      }
+    },
+    "userId": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "user_id",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      }
+    },
+    "visible": {
+      "type": "Boolean",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "visible",
+        "dataType": "boolean",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "YES"
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "find"
+    }
+  ],
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "defaultUser": {
+      "type": "belongsTo",
+      "model": "DefaultUser",
+      "foreignKey": "userId",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "node": {
+      "type": "hasOne",
+      "model": "Node",
+      "foreignKey": "id",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "vNode": {
+      "type": "hasOne",
+      "model": "VNode",
+      "foreignKey": "id",
+      "primaryKey": "nodeId",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "vNestedSetsGraphMates": {
+      "type": "hasMany",
+      "model": "VNestedSetsGraph",
+      "foreignKey": "sourceId",
+      "primaryKey": "sourceId",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "methods": {}
+}

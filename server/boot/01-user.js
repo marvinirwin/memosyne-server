@@ -41,6 +41,18 @@ module.exports = (server) => {
   const nestedSetsGraph = server.models.NestedSetsGraph;
   const vNestedSetsGraph = server.models.VNestedSetsGraph;
 
+
+/*  const assignDefaultUser = async ctx => {
+    // TODO figure out if it's ctx.data
+    debugger;
+    ctx.data.userId = 24;
+    console.log();
+  };
+
+  node.beforeRemote('save', assignDefaultUser);
+  edge.beforeRemote('save', assignDefaultUser);*/
+
+
   const createNodeRevision = async (ctx) => {
     // Will I get the entire object back, or do I have to re-query it?
     const revisionResult = await server.models.NodeRevision.create({nodeId: ctx.result.id});
@@ -49,7 +61,7 @@ module.exports = (server) => {
     ctx.result.nodeRevisions = [revision];
   };
   const addUser = async (ctx) => {
-    ctx.req.body.userId = ctx.req.accessToken.userId;
+    ctx.req.body.userId = /*ctx.req.accessToken.userId;*/ 24;
   };
   node.afterRemote('create', createNodeRevision);
   node.beforeRemote('create', addUser);
@@ -105,6 +117,4 @@ module.exports = (server) => {
   vNode.nestRemoting('nodeRevisions');
   edge.nestRemoting('edgeRevisions');
   vNestedSetsGraph.nestRemoting('vNode');
-
-  // FOR STACKOVERFLOW
 };

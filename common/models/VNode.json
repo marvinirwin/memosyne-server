@@ -1,1 +1,167 @@
-{"name":"VNode","options":{"idInjection":false,"postgresql":{"schema":"public","table":"v_node"}},"properties":{"id":{"type":"Number","id":1,"required":false,"length":null,"precision":null,"scale":0,"postgresql":{"columnName":"id","dataType":"bigint","dataLength":null,"dataPrecision":null,"dataScale":0,"nullable":"YES"}},"createdTimestamp":{"type":"Date","required":false,"length":null,"precision":null,"scale":null,"postgresql":{"columnName":"created_timestamp","dataType":"timestamp with time zone","dataLength":null,"dataPrecision":null,"dataScale":null,"nullable":"YES"}},"userId":{"type":"Number","required":false,"length":null,"precision":null,"scale":0,"postgresql":{"columnName":"user_id","dataType":"bigint","dataLength":null,"dataPrecision":null,"dataScale":0,"nullable":"YES"}},"lastModified":{"type":"Date","required":false,"length":null,"precision":null,"scale":null,"postgresql":{"columnName":"last_modified","dataType":"timestamp with time zone","dataLength":null,"dataPrecision":null,"dataScale":null,"nullable":"YES"}},"visible":{"type":"Boolean","required":false,"length":null,"precision":null,"scale":null,"postgresql":{"columnName":"visible","dataType":"boolean","dataLength":null,"dataPrecision":null,"dataScale":null,"nullable":"YES"}},"text":{"type":"String","required":false,"length":null,"precision":null,"scale":null,"postgresql":{"columnName":"text","dataType":"text","dataLength":null,"dataPrecision":null,"dataScale":null,"nullable":"YES"}}},"validations":[],"relations":{"user":{"type":"belongsTo","model":"user","foreignKey":"userId","options":{"nestRemoting":true}},"defaultUser":{"type":"belongsTo","model":"defaultUser","foreignKey":"userId","options":{"nestRemoting":true}},"nodeRevisions":{"type":"hasMany","model":"NodeRevision","foreignKey":"nodeId","options":{"nestRemoting":true}},"vNestedSetsGraph":{"type":"hasOne","model":"VNestedSetsGraph","foreignKey":"nodeId","options":{"nestRemoting":true}},"incomingVEdges":{"type":"hasMany","model":"VEdge","foreignKey":"n2"},"outgoingVEdges":{"type":"hasMany","model":"VEdge","foreignKey":"n1"}},"acls":[{"accessType":"*","principalType":"ROLE","principalId":"$everyone","permission":"DENY"},{"accessType":"READ","principalType":"ROLE","principalId":"$owner","permission":"ALLOW","property":["find","findById"]}],"methods":{}}
+{
+  "name": "VNode",
+  "options": {
+    "idInjection": false,
+    "postgresql": {
+      "schema": "public",
+      "table": "v_node"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "id",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      },
+      "id": 1
+    },
+    "createdTimestamp": {
+      "type": "Date",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "created_timestamp",
+        "dataType": "timestamp with time zone",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "YES"
+      }
+    },
+    "userId": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "user_id",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      }
+    },
+    "lastModified": {
+      "type": "Date",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "last_modified",
+        "dataType": "timestamp with time zone",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "YES"
+      }
+    },
+    "visible": {
+      "type": "Boolean",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "visible",
+        "dataType": "boolean",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "YES"
+      }
+    },
+    "text": {
+      "type": "String",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "text",
+        "dataType": "text",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "YES"
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": [
+        "find",
+        "findById"
+      ]
+    }
+  ],
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": "userId",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "defaultUser": {
+      "type": "belongsTo",
+      "model": "defaultUser",
+      "foreignKey": "userId",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "nodeRevisions": {
+      "type": "hasMany",
+      "model": "NodeRevision",
+      "foreignKey": "nodeId",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "vNestedSetsGraph": {
+      "type": "hasOne",
+      "model": "VNestedSetsGraph",
+      "foreignKey": "nodeId",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "incomingVEdges": {
+      "type": "hasMany",
+      "model": "VEdge",
+      "foreignKey": "n2"
+    },
+    "outgoingVEdges": {
+      "type": "hasMany",
+      "model": "VEdge",
+      "foreignKey": "n1"
+    }
+  },
+  "methods": {}
+}

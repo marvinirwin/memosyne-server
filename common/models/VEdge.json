@@ -1,1 +1,157 @@
-{"name":"VEdge","options":{"idInjection":false,"postgresql":{"schema":"public","table":"v_edge"}},"properties":{"id":{"type":"Number","id":1,"required":false,"length":null,"precision":null,"scale":0,"postgresql":{"columnName":"id","dataType":"bigint","dataLength":null,"dataPrecision":null,"dataScale":0,"nullable":"YES"}},"visible":{"type":"Boolean","required":false,"length":null,"precision":null,"scale":null,"postgresql":{"columnName":"visible","dataType":"boolean","dataLength":null,"dataPrecision":null,"dataScale":null,"nullable":"YES"}},"classification":{"type":"String","required":false,"length":null,"precision":null,"scale":null,"postgresql":{"columnName":"classification","dataType":"text","dataLength":null,"dataPrecision":null,"dataScale":null,"nullable":"YES"}},"createdTimestamp":{"type":"Date","required":false,"length":null,"precision":null,"scale":null,"postgresql":{"columnName":"created_timestamp","dataType":"timestamp with time zone","dataLength":null,"dataPrecision":null,"dataScale":null,"nullable":"YES"}},"n1":{"type":"Number","required":false,"length":null,"precision":null,"scale":0,"postgresql":{"columnName":"n1","dataType":"bigint","dataLength":null,"dataPrecision":null,"dataScale":0,"nullable":"YES"}},"n2":{"type":"Number","required":false,"length":null,"precision":null,"scale":0,"postgresql":{"columnName":"n2","dataType":"bigint","dataLength":null,"dataPrecision":null,"dataScale":0,"nullable":"YES"}},"text":{"type":"String","required":false,"length":null,"precision":null,"scale":null,"postgresql":{"columnName":"text","dataType":"text","dataLength":null,"dataPrecision":null,"dataScale":null,"nullable":"YES"}}},"validations":[],"relations":{"outgoingVEdges":{"type":"hasMany","model":"VNode","foreignKey":"id","primaryKey":"n1"},"incomingVEdges":{"type":"hasMany","model":"VNode","foreignKey":"id","primaryKey":"n2"},"edgeRevisions":{"type":"hasMany","model":"EdgeRevision","foreignKey":"edgeId","options":{"nestRemoting":true}}},"acls":[{"accessType":"*","principalType":"ROLE","principalId":"$everyone","permission":"DENY"},{"accessType":"READ","principalType":"ROLE","principalId":"$owner","permission":"ALLOW","property":"find"}],"methods":{}}
+{
+  "name": "VEdge",
+  "options": {
+    "idInjection": false,
+    "postgresql": {
+      "schema": "public",
+      "table": "v_edge"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "id",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      },
+      "id": 1
+    },
+    "visible": {
+      "type": "Boolean",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "visible",
+        "dataType": "boolean",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "YES"
+      }
+    },
+    "classification": {
+      "type": "String",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "classification",
+        "dataType": "text",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "YES"
+      }
+    },
+    "createdTimestamp": {
+      "type": "Date",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "created_timestamp",
+        "dataType": "timestamp with time zone",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "YES"
+      }
+    },
+    "n1": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "n1",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      }
+    },
+    "n2": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "n2",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      }
+    },
+    "text": {
+      "type": "String",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "text",
+        "dataType": "text",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "YES"
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": ["find", "findById"]
+    }
+  ],
+  "validations": [],
+  "relations": {
+    "outgoingVEdges": {
+      "type": "hasMany",
+      "model": "VNode",
+      "foreignKey": "id",
+      "primaryKey": "n1"
+    },
+    "incomingVEdges": {
+      "type": "hasMany",
+      "model": "VNode",
+      "foreignKey": "id",
+      "primaryKey": "n2"
+    },
+    "edgeRevisions": {
+      "type": "hasMany",
+      "model": "EdgeRevision",
+      "foreignKey": "edgeId",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "methods": {}
+}

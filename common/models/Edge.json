@@ -1,1 +1,106 @@
-{"name":"Edge","options":{"idInjection":false,"postgresql":{"schema":"public","table":"edge"}},"properties":{"id":{"type":"Number","id":1,"required":false,"length":null,"precision":null,"scale":0,"postgresql":{"columnName":"id","dataType":"bigint","dataLength":null,"dataPrecision":null,"dataScale":0,"nullable":"NO"}},"createdTimestamp":{"type":"Date","required":false,"length":null,"precision":null,"scale":null,"postgresql":{"columnName":"created_timestamp","dataType":"timestamp with time zone","dataLength":null,"dataPrecision":null,"dataScale":null,"nullable":"YES"}},"userId":{"type":"Number","length":null,"precision":null,"scale":0,"postgresql":{"columnName":"user_id","dataType":"bigint","dataLength":null,"dataPrecision":null,"dataScale":0,"nullable":"NO"}}},"validations":[],"relations":{"edgeRevisions":{"type":"hasMany","model":"EdgeRevision","options":{"nestRemoting":true}},"user":{"type":"belongsTo","model":"user","options":{"nestRemoting":true}},"defaultUser":{"type":"belongsTo","model":"defaultUser","options":{"nestRemoting":true}}},"acls":[{"accessType":"*","principalType":"ROLE","principalId":"$everyone","permission":"DENY"},{"accessType":"READ","principalType":"ROLE","principalId":"$owner","permission":"ALLOW","property":["find","findById"]},{"principalType":"ROLE","principalId":"$authenticated","permission":"ALLOW","property":"create"}],"methods":{}}
+{
+  "name": "Edge",
+  "options": {
+    "idInjection": false,
+    "postgresql": {
+      "schema": "public",
+      "table": "edge"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "id": 1,
+      "postgresql": {
+        "columnName": "id",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "NO"
+      }
+    },
+    "createdTimestamp": {
+      "type": "Date",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "created_timestamp",
+        "dataType": "timestamp with time zone",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "YES"
+      }
+    },
+    "userId": {
+      "type": "Number",
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "user_id",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "NO"
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": [
+        "find",
+        "findById"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "create"
+    }
+  ],
+  "validations": [],
+  "relations": {
+    "edgeRevisions": {
+      "type": "hasMany",
+      "model": "EdgeRevision",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "defaultUser": {
+      "type": "belongsTo",
+      "model": "defaultUser",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "methods": {}
+}

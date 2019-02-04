@@ -89,6 +89,7 @@ const tables = [
   "v_edge_revision",
   'nested_sets_graph',
   'v_nested_sets_graph',
+    'v_nested_sets_graph_source_node',
 ];
 
 tables.map(discoverTable);
