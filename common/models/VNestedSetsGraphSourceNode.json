@@ -1,28 +1,73 @@
 {
-  "name": "VNode",
+  "name": "VNestedSetsGraphSourceNode",
   "options": {
     "idInjection": false,
     "postgresql": {
       "schema": "public",
-      "table": "v_node"
+      "table": "v_nested_sets_graph_source_node"
     }
   },
   "properties": {
-    "id": {
+    "nodeId": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "id": true,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "node_id",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      }
+    },
+    "lft": {
       "type": "Number",
       "required": false,
       "length": null,
       "precision": null,
       "scale": 0,
       "postgresql": {
-        "columnName": "id",
+        "columnName": "lft",
         "dataType": "bigint",
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": 0,
         "nullable": "YES"
-      },
-      "id": 1
+      }
+    },
+    "rgt": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": 0,
+      "postgresql": {
+        "columnName": "rgt",
+        "dataType": "bigint",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": 0,
+        "nullable": "YES"
+      }
+    },
+    "text": {
+      "type": "String",
+      "required": false,
+      "length": null,
+      "precision": null,
+      "scale": null,
+      "postgresql": {
+        "columnName": "text",
+        "dataType": "text",
+        "dataLength": null,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "YES"
+      }
     },
     "createdTimestamp": {
       "type": "Date",
@@ -39,21 +84,6 @@
         "nullable": "YES"
       }
     },
-    "userId": {
-      "type": "Number",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": 0,
-      "postgresql": {
-        "columnName": "user_id",
-        "dataType": "bigint",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": 0,
-        "nullable": "YES"
-      }
-    },
     "lastModified": {
       "type": "Date",
       "required": false,
@@ -63,36 +93,6 @@
       "postgresql": {
         "columnName": "last_modified",
         "dataType": "timestamp with time zone",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "YES"
-      }
-    },
-    "visible": {
-      "type": "Boolean",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "postgresql": {
-        "columnName": "visible",
-        "dataType": "boolean",
-        "dataLength": null,
-        "dataPrecision": null,
-        "dataScale": null,
-        "nullable": "YES"
-      }
-    },
-    "text": {
-      "type": "String",
-      "required": false,
-      "length": null,
-      "precision": null,
-      "scale": null,
-      "postgresql": {
-        "columnName": "text",
-        "dataType": "text",
         "dataLength": null,
         "dataPrecision": null,
         "dataScale": null,
@@ -111,57 +111,7 @@
       "accessType": "READ",
       "principalType": "ROLE",
       "principalId": "$everyone",
-      "permission": "ALLOW",
-      "property": [
-        "find",
-        "findById"
-      ]
+      "permission": "ALLOW"
     }
-  ],
-  "validations": [],
-  "relations": {
-    "user": {
-      "type": "belongsTo",
-      "model": "user",
-      "foreignKey": "userId",
-      "options": {
-        "nestRemoting": true
-      }
-    },
-    "defaultUser": {
-      "type": "belongsTo",
-      "model": "defaultUser",
-      "foreignKey": "userId",
-      "options": {
-        "nestRemoting": true
-      }
-    },
-    "nodeRevisions": {
-      "type": "hasMany",
-      "model": "NodeRevision",
-      "foreignKey": "nodeId",
-      "options": {
-        "nestRemoting": true
-      }
-    },
-    "vNestedSetsGraph": {
-      "type": "hasOne",
-      "model": "VNestedSetsGraph",
-      "foreignKey": "nodeId",
-      "options": {
-        "nestRemoting": true
-      }
-    },
-    "incomingVEdges": {
-      "type": "hasMany",
-      "model": "VEdge",
-      "foreignKey": "n2"
-    },
-    "outgoingVEdges": {
-      "type": "hasMany",
-      "model": "VEdge",
-      "foreignKey": "n1"
-    }
-  },
-  "methods": {}
+  ]
 }

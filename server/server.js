@@ -4,6 +4,8 @@ const boot = require('loopback-boot');
 const path = require('path');
 
 const app = module.exports = loopback();
+const wsServer = require("./websockets");
+
 
 const PassportConfigurator = require('loopback-component-passport').PassportConfigurator;
 const passportConfigurator = new PassportConfigurator(app);
@@ -27,7 +29,8 @@ boot(app, __dirname, function (err) {
   if (err) throw err;
 
   if (require.main === module)
-    app.start();
+
+    wsServer.listen(app.start(), app);
 });
 
 let config = {};
