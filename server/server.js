@@ -6,11 +6,8 @@ const path = require('path');
 const app = module.exports = loopback();
 const wsServer = require("./websockets");
 
-
 const PassportConfigurator = require('loopback-component-passport').PassportConfigurator;
 const passportConfigurator = new PassportConfigurator(app);
-
-
 
 app.start = function () {
   // start the web server

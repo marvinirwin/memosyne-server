@@ -72,10 +72,10 @@
       ]
     },
     {
+      "accessType": "EXECUTE",
       "principalType": "ROLE",
       "principalId": "$everyone",
-      "permission": "ALLOW",
-      "property": "create"
+      "permission": "ALLOW"
     }
   ],
   "validations": [],

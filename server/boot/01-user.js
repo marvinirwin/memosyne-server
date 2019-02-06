@@ -14,7 +14,7 @@ module.exports = (app) => {
     const nestedSetsGraph = app.models.NestedSetsGraph;
     const vNestedSetsGraph = app.models.VNestedSetsGraph;
 
-    nodeRevision.afterRemote('create', async ({result}) => {
+    app.broadcastNodeRevision = async ({result}) => {
         const text = JSON.stringify({
             nodeId: result.nodeId,
             text: result.text,
@@ -24,8 +24,8 @@ module.exports = (app) => {
         app.activeSockets.forEach(ws => {
             ws.send(text)
         });
-    });
-    edgeRevision.afterRemote('create', async ({result}) => {
+    };
+    app.broadcastEdgeRevision = async ({result}) => {
         const text = JSON.stringify({
             previousEdges: await edgeRevision.find({
                 where: {edgeId: result.edgeId},
@@ -41,7 +41,9 @@ module.exports = (app) => {
         app.activeSockets.forEach(ws => {
             ws.send(text)
         });
-    });
+    };
+    nodeRevision.afterRemote('create', ({result}) => server.broadcastNodeRevision({result}));
+    edgeRevision.afterRemote('create', ({result}) => server.broadcastEdgeRevision({result}));
 
 
     const createNodeRevision = async (ctx) => {
